@@ -1,0 +1,37 @@
+contentElement {
+  width: 100%;
+  margin: 0;
+  outline: none;
+  text-align: center;
+  font-weight: 500;
+}
+
+p {
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  z-index: 2;
+  word-break: break-word;
+}
+
+input {
+  width: 100%;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  z-index: 2;
+  word-break: break-word;
+  border: none;
+  background-color: #e0eef5;
+}
+
+input:focus {
+  outline: none;
+}
+
+img {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
