@@ -13,7 +13,15 @@ function TitleH2() {
         position: 'relative',
         border: isHover ? 'solid' : 'none',
       }}>
-      {<img src={trash} alt="delete" width="20" height="20" />}
+      {isHover && (
+        <img
+          className={styles.trash}
+          src={trash}
+          alt="delete"
+          width="20"
+          height="20"
+        />
+      )}
       <h1 className={styles.contentElement}>Заголовок H2</h1>
     </div>
   );

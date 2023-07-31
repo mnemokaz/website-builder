@@ -16,19 +16,27 @@ function Text() {
         border: isHover ? 'solid' : 'none',
         padding: '10px 0',
       }}>
-      {isHover && <img src={trash} alt="delete" width="20" height="20" />}
+      {isHover && (
+        <img
+          className={styles.trash}
+          src={trash}
+          alt="delete"
+          width="20"
+          height="20"
+        />
+      )}
 
-      {/* {isShowInput ? ( */}
-      <input
-        type="text"
-        value={text}
-        onChange={e => setText(e.target.value)}
-        autoFocus
-        onBlur={() => {
-          setIsShowInput(false);
-        }}
-      />
-      {/* ) : (
+      {isShowInput ? (
+        <input
+          type="text"
+          value={text}
+          onChange={e => setText(e.target.value)}
+          autoFocus
+          onBlur={() => {
+            setIsShowInput(false);
+          }}
+        />
+      ) : (
         <p
           className={styles.contentElement}
           onClick={() => {
@@ -37,7 +45,7 @@ function Text() {
           }}>
           {text}
         </p>
-      )} */}
+      )}
     </div>
   );
 }

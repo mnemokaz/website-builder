@@ -1,0 +1,95 @@
+.photo {
+  width: 32px;
+  height: 32px;
+  fill: #dadada;
+  -webkit-transition: fill 0.3s;
+  transition: fill 0.3s;
+}
+
+.trash {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+
+.contentElement {
+  width: 100%;
+  margin: 0;
+  outline: none;
+  text-align: center;
+  font-weight: 500;
+}
+
+.imgUpload {
+  position: absolute;
+
+  width: 284px;
+  padding: 13px 16px 19px;
+  font-family: 'PTAstraSans', 'Arial', sans-serif;
+  font-weight: 400;
+  color: #3a3e46;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 3;
+  bottom: -180px;
+}
+
+.imgUpload p {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.imgUpload input[type='url'] {
+  width: 100%;
+
+  margin-bottom: 12px;
+  font-size: 16px;
+  line-height: 32px;
+  color: #3a3e46;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+}
+
+.imgUpload input[type='url']::-webkit-input-placeholder {
+  color: #cecece;
+}
+
+.imgUpload input[type='url']::-moz-placeholder {
+  color: #cecece;
+}
+
+.imgUpload input[type='url']:-ms-input-placeholder {
+  color: #cecece;
+}
+
+.imgUpload input[type='url']::-ms-input-placeholder {
+  color: #cecece;
+}
+
+.imgUpload input[type='url']::placeholder {
+  color: #cecece;
+}
+
+.imgUploadLabel {
+  display: block;
+  width: 100%;
+  padding: 10px 3px;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #80ccf0;
+  border-radius: 4px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.imgUploadLabel:hover,
+.imgUploadLabel:focus-within {
+  background-color: #a2dffc;
+}
