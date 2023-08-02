@@ -6,48 +6,60 @@ import photo from '../../assets/icons/photo.png';
 function Image() {
   const [isHover, setIsHover] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [text, setText] = useState('');
+  const [link, setLink] = useState(photo);
 
   return (
-    <div
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      onClick={() => setIsOpen(!isOpen)}
-      style={{
-        position: 'relative',
-        border: isHover ? 'solid' : 'none',
-        width: 300,
-        height: 50,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}>
-      {isHover && (
+    <>
+      <div
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          position: 'relative',
+          border: isHover ? 'solid' : 'none',
+          width: 300,
+          height: 50,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        {isHover && (
+          <img
+            className={styles.trash}
+            src={trash}
+            alt="delete"
+            width="20"
+            height="20"
+          />
+        )}
         <img
-          className={styles.trash}
-          src={trash}
+          className={styles.photo}
+          src={link}
           alt="delete"
           width="20"
           height="20"
         />
-      )}
-      <img
-        className={styles.photo}
-        src={photo}
-        alt="delete"
-        width="20"
-        height="20"
-      />
+      </div>
       {isOpen && (
         <div className={styles.imgUpload}>
           <p>Загрузите изображение</p>
           <input
             placeholder="Вставьте ссылку на изображение"
             type="url"
-            className={styles.contentElement}></input>
-          <label className={styles.imgUploadLabel}>Загрузить</label>
+            className={styles.contentElement}
+            onChange={e => setText(e.target.value)}></input>
+          <label
+            className={styles.imgUploadLabel}
+            onClick={() => {
+              setLink(text);
+              setIsOpen(false);
+            }}>
+            Загрузить
+          </label>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

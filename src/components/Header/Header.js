@@ -16,8 +16,8 @@ function Header(props) {
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}>
       {isShown && <AddButton />}
-
       {/* <p className={styles.placeholder}>Header</p> */}
+
       <TitleH1 />
       <TitleH2 />
       <TitleH3 />

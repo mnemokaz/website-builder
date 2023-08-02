@@ -4,6 +4,8 @@ import styles from './TitleH3.module.css';
 
 function TitleH3() {
   const [isHover, setIsHover] = useState(false);
+  const [isShowInput, setIsShowInput] = useState(false);
+  const [text, setText] = useState('Заголовок H3');
 
   return (
     <div
@@ -22,7 +24,26 @@ function TitleH3() {
           height="20"
         />
       )}
-      <h1 className={styles.contentElement}>Заголовок H3</h1>
+      {isShowInput ? (
+        <input
+          type="text"
+          value={text}
+          onChange={e => setText(e.target.value)}
+          autoFocus
+          onBlur={() => {
+            setIsShowInput(false);
+          }}
+        />
+      ) : (
+        <h3
+          className={styles.contentElement}
+          onClick={() => {
+            setIsShowInput(true);
+            setText(text === 'Заголовок H3' ? '' : text);
+          }}>
+          {text}
+        </h3>
+      )}
     </div>
   );
 }
