@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {Fragment, useState} from 'react';
 import trash from '../../assets/icons/trash.svg';
 import styles from './Text.module.css';
 
@@ -6,6 +6,9 @@ function Text() {
   const [isHover, setIsHover] = useState(false);
   const [isShowInput, setIsShowInput] = useState(false);
   const [text, setText] = useState('Абзац');
+  const [isRemoved, setIsRemoved] = useState(false);
+
+  if (isRemoved) return <Fragment />;
 
   return (
     <div
@@ -14,11 +17,13 @@ function Text() {
       style={{
         position: 'relative',
         border: isHover ? 'solid' : 'none',
-        padding: '10px 0',
       }}>
       {isHover && (
         <img
           className={styles.trash}
+          onClick={() => {
+            setIsRemoved(true);
+          }}
           src={trash}
           alt="delete"
           width="20"
@@ -28,6 +33,7 @@ function Text() {
 
       {isShowInput ? (
         <input
+          className={styles.input}
           type="text"
           value={text}
           onChange={e => setText(e.target.value)}
@@ -37,14 +43,14 @@ function Text() {
           }}
         />
       ) : (
-        <p
+        <h1
           className={styles.contentElement}
           onClick={() => {
             setIsShowInput(true);
             setText(text === 'Абзац' ? '' : text);
           }}>
           {text}
-        </p>
+        </h1>
       )}
     </div>
   );

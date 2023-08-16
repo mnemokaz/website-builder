@@ -11,22 +11,17 @@
   top: 5px;
   left: 5px;
 }
-input {
+
+.input {
   width: 100%;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 36px;
+  line-height: 46px;
   text-align: center;
   z-index: 2;
   word-break: break-word;
   border: none;
   background-color: #e0eef5;
 }
-
-input:focus {
+.input:focus {
   outline: none;
-}
-
-h1 {
-  font-size: 36px;
-  line-height: 46px;
 }

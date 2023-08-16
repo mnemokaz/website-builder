@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {Fragment, useState} from 'react';
 import trash from '../../assets/icons/trash.svg';
 import styles from './Image.module.css';
 import photo from '../../assets/icons/photo.png';
@@ -8,6 +8,7 @@ function Image() {
   const [isOpen, setIsOpen] = useState(false);
   const [text, setText] = useState('');
   const [link, setLink] = useState(photo);
+  const [isRemoved, setIsRemoved] = useState(false);
 
   return (
     <>

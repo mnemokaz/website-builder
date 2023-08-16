@@ -6,16 +6,7 @@
   font-weight: 500;
 }
 
-p {
-  width: 100%;
-  font-size: 18px;
-  line-height: 24px;
-  text-align: center;
-  z-index: 2;
-  word-break: break-word;
-}
-
-input {
+.input {
   width: 100%;
   font-size: 18px;
   line-height: 24px;
@@ -26,7 +17,7 @@ input {
   background-color: #e0eef5;
 }
 
-input:focus {
+.input:focus {
   outline: none;
 }
 

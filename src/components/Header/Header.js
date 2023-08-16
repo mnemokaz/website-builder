@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import React, {useState} from 'react';
 import styles from './Header.module.css';
 import AddButton from '../Button/Button';
 import TitleH1 from '../TitleH1/TitleH1';
@@ -9,20 +9,30 @@ import Image from '../Image/Image';
 
 function Header(props) {
   const [isShown, setIsShown] = useState(false);
+  const [components, setComponents] = useState([]);
 
   return (
     <header
       className={`${styles.header} ${styles.headerEmpty}`}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}>
-      {isShown && <AddButton />}
-      {/* <p className={styles.placeholder}>Header</p> */}
+      {isShown && (
+        <AddButton
+          onElementPick={comp => {
+            setComponents([...components, comp]);
+            setIsShown(false);
+          }}
+        />
+      )}
+      {!components.length && <p className={styles.placeholder}>Header</p>}
 
-      <TitleH1 />
+      {components}
+
+      {/* <TitleH1 />
       <TitleH2 />
       <TitleH3 />
       <Text />
-      <Image />
+      <Image /> */}
     </header>
   );
 }

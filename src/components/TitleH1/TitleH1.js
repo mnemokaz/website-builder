@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {Fragment, useState} from 'react';
 import trash from '../../assets/icons/trash.svg';
 import styles from './TitleH1.module.css';
 
@@ -6,6 +6,9 @@ function TitleH1() {
   const [isHover, setIsHover] = useState(false);
   const [isShowInput, setIsShowInput] = useState(false);
   const [text, setText] = useState('Заголовок H1');
+  const [isRemoved, setIsRemoved] = useState(false);
+
+  if (isRemoved) return <Fragment />;
 
   return (
     <div
@@ -18,6 +21,9 @@ function TitleH1() {
       {isHover && (
         <img
           className={styles.trash}
+          onClick={() => {
+            setIsRemoved(true);
+          }}
           src={trash}
           alt="delete"
           width="20"
@@ -27,6 +33,7 @@ function TitleH1() {
 
       {isShowInput ? (
         <input
+          className={styles.input}
           type="text"
           value={text}
           onChange={e => setText(e.target.value)}
