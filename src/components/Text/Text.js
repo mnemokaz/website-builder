@@ -43,14 +43,14 @@ function Text() {
           }}
         />
       ) : (
-        <h1
+        <p
           className={styles.contentElement}
           onClick={() => {
             setIsShowInput(true);
             setText(text === 'Абзац' ? '' : text);
           }}>
           {text}
-        </h1>
+        </p>
       )}
     </div>
   );

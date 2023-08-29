@@ -16,7 +16,6 @@
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
   opacity: 0;
-  z-index: 1;
 }
 
 .contentEmpty {

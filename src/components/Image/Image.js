@@ -10,6 +10,8 @@ function Image() {
   const [link, setLink] = useState(photo);
   const [isRemoved, setIsRemoved] = useState(false);
 
+  if (isRemoved) return <Fragment />;
+
   return (
     <>
       <div
@@ -28,6 +30,9 @@ function Image() {
         {isHover && (
           <img
             className={styles.trash}
+            onClick={() => {
+              setIsRemoved(true);
+            }}
             src={trash}
             alt="delete"
             width="20"

@@ -43,14 +43,14 @@ function TitleH3() {
           }}
         />
       ) : (
-        <h1
+        <h3
           className={styles.contentElement}
           onClick={() => {
             setIsShowInput(true);
             setText(text === 'Заголовок H3' ? '' : text);
           }}>
           {text}
-        </h1>
+        </h3>
       )}
     </div>
   );
