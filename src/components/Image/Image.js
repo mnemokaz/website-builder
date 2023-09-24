@@ -2,15 +2,15 @@ import {Fragment, useState} from 'react';
 import trash from '../../assets/icons/trash.svg';
 import styles from './Image.module.css';
 import photo from '../../assets/icons/photo.png';
+import {useDispatch} from 'react-redux';
+import {appSlice} from '../../store/reducer';
 
-function Image() {
+function Image(props) {
+  const dispatch = useDispatch();
   const [isHover, setIsHover] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [text, setText] = useState('');
+  const [text, setText] = useState(props.text);
   const [link, setLink] = useState(photo);
-  const [isRemoved, setIsRemoved] = useState(false);
-
-  if (isRemoved) return <Fragment />;
 
   return (
     <>
@@ -31,7 +31,7 @@ function Image() {
           <img
             className={styles.trash}
             onClick={() => {
-              setIsRemoved(true);
+              dispatch(appSlice.actions.deleteHeaderComponentAction(props.id));
             }}
             src={trash}
             alt="delete"

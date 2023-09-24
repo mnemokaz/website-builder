@@ -1,14 +1,14 @@
 import {Fragment, useState} from 'react';
 import trash from '../../assets/icons/trash.svg';
 import styles from './TitleH2.module.css';
+import {useDispatch} from 'react-redux';
+import {appSlice} from '../../store/reducer';
 
-function TitleH2() {
+function TitleH2(props) {
+  const dispatch = useDispatch();
   const [isHover, setIsHover] = useState(false);
   const [isShowInput, setIsShowInput] = useState(false);
-  const [text, setText] = useState('Заголовок H2');
-  const [isRemoved, setIsRemoved] = useState(false);
-
-  if (isRemoved) return <Fragment />;
+  const [text, setText] = useState(props.text);
 
   return (
     <div
@@ -22,7 +22,7 @@ function TitleH2() {
         <img
           className={styles.trash}
           onClick={() => {
-            setIsRemoved(true);
+            dispatch(appSlice.actions.deleteHeaderComponentAction(props.id));
           }}
           src={trash}
           alt="delete"

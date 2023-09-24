@@ -1,14 +1,14 @@
 import {Fragment, useState} from 'react';
 import trash from '../../assets/icons/trash.svg';
 import styles from './Text.module.css';
+import {useDispatch} from 'react-redux';
+import {appSlice} from '../../store/reducer';
 
-function Text() {
+function Text(props) {
+  const dispatch = useDispatch();
   const [isHover, setIsHover] = useState(false);
   const [isShowInput, setIsShowInput] = useState(false);
-  const [text, setText] = useState('Абзац');
-  const [isRemoved, setIsRemoved] = useState(false);
-
-  if (isRemoved) return <Fragment />;
+  const [text, setText] = useState(props.text);
 
   return (
     <div
@@ -22,7 +22,7 @@ function Text() {
         <img
           className={styles.trash}
           onClick={() => {
-            setIsRemoved(true);
+            dispatch(appSlice.actions.deleteHeaderComponentAction(props.id));
           }}
           src={trash}
           alt="delete"

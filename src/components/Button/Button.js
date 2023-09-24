@@ -5,8 +5,12 @@ import TitleH2 from '../TitleH2/TitleH2';
 import TitleH3 from '../TitleH3/TitleH3';
 import Text from '../Text/Text';
 import Image from '../Image/Image';
+import {useDispatch, useSelector} from 'react-redux';
+import {appSlice} from '../../store/reducer';
+import {selectTotal} from '../../store/selectors';
 
 function AddButton({onElementPick}) {
+  const total = useSelector(selectTotal);
   const [visible, setVisible] = useState(false);
 
   return (
@@ -36,7 +40,11 @@ function AddButton({onElementPick}) {
             type="button"
             className={styles.chooseElem_btn}
             onClick={() => {
-              onElementPick(<TitleH1 />);
+              onElementPick({
+                id: total + 1,
+                type: 'titleH1',
+                text: 'Заголовок H1',
+              });
             }}>
             Заголовок H1
           </button>
@@ -44,7 +52,11 @@ function AddButton({onElementPick}) {
             type="button"
             className={styles.chooseElem_btn}
             onClick={() => {
-              onElementPick(<TitleH2 />);
+              onElementPick({
+                id: total + 1,
+                type: 'titleH2',
+                text: 'Заголовок H2',
+              });
             }}>
             Заголовок H2
           </button>
@@ -52,7 +64,11 @@ function AddButton({onElementPick}) {
             type="button"
             className={styles.chooseElem_btn}
             onClick={() => {
-              onElementPick(<TitleH3 />);
+              onElementPick({
+                id: total + 1,
+                type: 'titleH3',
+                text: 'Заголовок H3',
+              });
             }}>
             Заголовок H3
           </button>
@@ -60,7 +76,11 @@ function AddButton({onElementPick}) {
             type="button"
             className={styles.chooseElem_btn}
             onClick={() => {
-              onElementPick(<Text />);
+              onElementPick({
+                id: total + 1,
+                type: 'text',
+                text: 'Text',
+              });
             }}>
             Абзац текста
           </button>
@@ -68,7 +88,11 @@ function AddButton({onElementPick}) {
             type="button"
             className={styles.chooseElem_btn}
             onClick={() => {
-              onElementPick(<Image />);
+              onElementPick({
+                id: total + 1,
+                type: 'image',
+                text: '',
+              });
             }}>
             Изображение
           </button>
