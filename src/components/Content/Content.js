@@ -6,10 +6,15 @@ import TitleH2 from '../TitleH2/TitleH2';
 import TitleH3 from '../TitleH3/TitleH3';
 import Text from '../Text/Text';
 import Image from '../Image/Image';
+import {useDispatch, useSelector} from 'react-redux';
+import {appSlice} from '../../store/reducer';
+import {selectContent1} from '../../store/selectors';
 
 function Content(props) {
-  const [isShown, setIsShown] = useState(null);
-  const [components, setComponents] = useState([]);
+  const dispatch = useDispatch();
+  const components = useSelector(selectContent1);
+  const [isShown, setIsShown] = useState(false);
+
   return (
     <>
       <div
@@ -18,15 +23,28 @@ function Content(props) {
         onMouseLeave={() => setIsShown(null)}>
         {isShown === 1 && (
           <AddButton
-            onElementPick={comp => {
-              setComponents([...components, comp]);
-              setIsShown(null);
+            onElementPick={elem => {
+              dispatch(appSlice.actions.addContent1ComponentAction(elem));
+              setIsShown(false);
             }}
           />
         )}
 
         {!components.length && <p className={styles.placeholder}>Content</p>}
-        {components}
+        {components.map(comp => {
+          if (comp.type === 'titleH1')
+            return <TitleH1 key={comp.id} text={comp.text} id={comp.id} />;
+          if (comp.type === 'titleH2')
+            return <TitleH2 key={comp.id} text={comp.text} id={comp.id} />;
+
+          if (comp.type === 'titleH3')
+            return <TitleH3 key={comp.id} text={comp.text} id={comp.id} />;
+
+          if (comp.type === 'text')
+            return <Text key={comp.id} text={comp.text} id={comp.id} />;
+          if (comp.type === 'image')
+            return <Image key={comp.id} text={comp.text} id={comp.id} />;
+        })}
       </div>
       {props.amount > 1 && (
         <div
@@ -36,7 +54,7 @@ function Content(props) {
           {isShown === 2 && (
             <AddButton
               onElementPick={comp => {
-                setComponents([...components, comp]);
+                //TODO dispatch
                 setIsShown(null);
               }}
             />
@@ -52,7 +70,7 @@ function Content(props) {
           {isShown === 3 && (
             <AddButton
               onElementPick={comp => {
-                setComponents([...components, comp]);
+                //TODO dispatch
                 setIsShown(null);
               }}
             />

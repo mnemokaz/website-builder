@@ -22,7 +22,7 @@ function Text(props) {
         <img
           className={styles.trash}
           onClick={() => {
-            dispatch(appSlice.actions.deleteHeaderComponentAction(props.id));
+            dispatch(appSlice.actions.deleteComponentAction(props.id));
           }}
           src={trash}
           alt="delete"
