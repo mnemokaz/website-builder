@@ -17,6 +17,9 @@ function Text(props) {
       style={{
         position: 'relative',
         border: isHover ? 'solid' : 'none',
+        minHeight: 20,
+        paddingTop: 6,
+        paddingBottom: 6,
       }}>
       {isHover && (
         <img

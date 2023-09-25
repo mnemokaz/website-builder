@@ -5,13 +5,15 @@ import Landing from './components/Landing/Landing';
 import Blog from './components/Blog/Blog';
 import Shop from './components/Shop/Shop';
 import {useState} from 'react';
+import {useSelector} from 'react-redux';
+import {selectType} from './store/selectors';
 
 function App() {
-  const [page, setPage] = useState('landing');
+  const page = useSelector(selectType);
 
   return (
     <div className="container">
-      <Menu onClick={setPage} />
+      <Menu />
       {page === 'landing' && <Landing />}
       {page === 'blog' && <Blog />}
       {page === 'shop' && <Shop />}

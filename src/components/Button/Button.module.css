@@ -1,12 +1,12 @@
 .addBtn {
   position: absolute;
- 
+
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   padding: 0;
@@ -22,14 +22,14 @@
   top: 50%;
   right: 0;
   -webkit-transform: translate(50%, -50%);
-          transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
 }
 
-.addBtn:hover, .addBtn:focus {
+.addBtn:hover,
+.addBtn:focus {
   -webkit-box-shadow: 0 0 10px 0 rgba(128, 204, 240, 0.75);
-          box-shadow: 0 0 10px 0 rgba(128, 204, 240, 0.75);
+  box-shadow: 0 0 10px 0 rgba(128, 204, 240, 0.75);
 }
-
 
 .chooseElem {
   position: absolute;
@@ -40,16 +40,15 @@
   display: flex;
   font-size: 16px;
   line-height: 18px;
-  -webkit-transform: translateY(50%);
-          transform: translateY(50%);
   border: 1px solid #cecece;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   -webkit-box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.1);
   /*overflow: hidden;*/
   z-index: 5;
+  flex-wrap: wrap;
+  width: 133px;
 }
-
 
 .chooseElem_btn {
   width: 133px;
@@ -62,14 +61,14 @@
   cursor: pointer;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
-  font-family: "PTAstraSans", "Arial", sans-serif;
+  font-family: 'PTAstraSans', 'Arial', sans-serif;
 }
 
 .chooseElem_btn + .chooseElem_btn {
-  border-left: 1px solid #cecece;
+  /* border-left: 1px solid #cecece; */
 }
 
-.chooseElem_btn:hover, .chooseElem_btn:focus {
+.chooseElem_btn:hover,
+.chooseElem_btn:focus {
   background-color: #eeeeee;
 }
-

@@ -9,11 +9,11 @@ import Text from '../Text/Text';
 import Image from '../Image/Image';
 import {useDispatch, useSelector} from 'react-redux';
 import {appSlice} from '../../store/reducer';
-import {selectHeader} from '../../store/selectors';
+import {selectFooter} from '../../store/selectors';
 
 function Footer(props) {
   const dispatch = useDispatch();
-  const components = useSelector(selectHeader);
+  const components = useSelector(selectFooter);
   const [isShown, setIsShown] = useState(false);
 
   return (
@@ -24,7 +24,7 @@ function Footer(props) {
       {isShown && (
         <AddButton
           onElementPick={elem => {
-            dispatch(appSlice.actions.addHeaderComponentAction(elem));
+            dispatch(appSlice.actions.addFooterComponentAction(elem));
             setIsShown(false);
           }}
         />

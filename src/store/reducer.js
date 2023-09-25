@@ -51,5 +51,15 @@ export const appSlice = createSlice({
         ...state.footer.filter(comp => comp.id !== action.payload),
       ];
     },
+
+    changeTypeAction: (state, action) => {
+      state.type = action.payload;
+      state.total = 1;
+      state.header = [];
+      state.footer = [];
+      state.content1 = [];
+      state.content2 = [];
+      state.content3 = [];
+    },
   },
 });
